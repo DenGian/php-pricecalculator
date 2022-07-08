@@ -8,14 +8,19 @@ Anything complex should be calculated in the model -->
 
     <p>Put your content here.</p>
 </section>-->
-<?php require 'includes/footer.php'?>
+
 <fieldset>
     <label for="product">Choose a product:</label>
     <select name="product" id="product"><!--select is used to create a drop-down list-->
-            <option value=""></option>
+        <option value=""></option>
     </select>
     <label for="customers">Choose a customer:</label>
     <select name="customers" id="customers">
-        <option value=""></option>
+        <?php foreach ($customers as $key=>$customer) {
+            echo "<option>$key - $customer<option>"; //display lastname - Firstname in drop-down-list.
+        } ?>
     </select>
 </fieldset>
+
+<?php require 'includes/footer.php'?>
+
