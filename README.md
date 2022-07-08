@@ -37,6 +37,43 @@ In this assignment we are asked to combine databases with OOP.
   - Model
   - View
   - Controller
+  
+-6 [x] Made model, so we can connect to DB, confirmation message on screen
+
+-7 [x] Products
+* Products are shown in drop down menu
+````
+<label for="product">Choose a product:</label>
+<select name="product" id="product"><!--select is used to create a drop-down list-->
+   <?php foreach ($products as $product) {
+       echo "<option>$product<option>";
+} ?>
+````
+````
+$sql = "SELECT name FROM product ORDER BY name";
+$connectionProducts = $this->connection->query($sql);
+return $connectionProducts->fetchAll(PDO::FETCH_COLUMN);
+````
+
+-8 [x] Name
+* Names are shown in drop down menu (first and last names)
+````
+<label for="customers">Choose a customer:</label>
+<select name="customers" id="customers">
+   <?php foreach ($customers as $key => $customer) {
+       echo "<option>$key - $customer<option>"; //display lastname - Firstname in drop-down-list.
+} ?>
+````
+````
+$sql = "SELECT lastname, firstname From customer ORDER BY lastname, firstname";
+$result = $this->connection->query($sql);
+return $result->fetchAll(PDO::FETCH_KEY_PAIR);
+````
+---
+````
+$customers = $database->getAllCustomers();
+$products = $database->getAllProducts();
+````
 
 ---
 ### ToDo's

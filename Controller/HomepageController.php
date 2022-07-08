@@ -1,16 +1,20 @@
 <?php
 declare(strict_types = 1);
 
-class HomepageController
+class HomepageController // you should not echo anything inside your controller - only assign vars here
 {
     //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
     {
-        //this is just example code, you can remove the line below
-        $user = new User('John Smith');
+        $database = new Database();
+        $database->connect();
 
-        // you should not echo anything inside your controller - only assign vars here
-        
+        $customers = $database->getAllCustomers();
+        $products = $database->getAllProducts();
+
+
+        //print_r($products);
+
         // Models will be responsible for getting the data, for example if you want to get some students from a database:
         // $students = StudentHelper::getAllStudents();
         // The line above this one will use a StudentHelper model that you can make and require in this file

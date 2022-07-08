@@ -10,8 +10,14 @@ class User
         $this->name = $name;
     }
 
+    //protected function getAllUsers(){
+        //$sql = "SELECT * FROM ";
+        //$result = $this->connect()->query($sql);
+    //}
+
     public function getName() : string
     {
         return $this->name;
     }
+
 }
