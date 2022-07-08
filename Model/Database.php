@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 Class Database {
 
-    public function connect () {
+    public function connect (): void {
         $username = $_ENV['USERNAME'];
         $password = $_ENV['PASSWORD'];
         $localhost = $_ENV['LOCALHOST'];
@@ -17,6 +18,4 @@ Class Database {
             echo "Connection failed: " . $e->getMessage();
         }
     }
-
 }
-
