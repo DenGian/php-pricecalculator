@@ -4,9 +4,9 @@ Class Database {
 
     public function connect () {
         $username = $_ENV['USERNAME'];
-        $password = $_ENV['password'];
-        $localhost = $_ENV['localhost'];
-        $dbname = $_ENV['dbname'];
+        $password = $_ENV['PASSWORD'];
+        $localhost = $_ENV['LOCALHOST'];
+        $dbname = $_ENV['DBNAME'];
 
         try {
             $conn = new PDO("mysql:host=$localhost;dbname=$dbname", $username, $password);
