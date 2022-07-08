@@ -1,7 +1,7 @@
 # php-pricecalculator
 
 ---
-MaTS
+### MaTS
 ![meme](images/meme.webp)
 
 ---
