@@ -26,4 +26,11 @@ private $connection;                                        //property
         return $result->fetchAll(PDO::FETCH_KEY_PAIR);      //fetchAll() method allows you to fetch all rows from a result set associated with a PDOStatement object into an array.
                                                             //PDO::FETCH_KEY_PAIR mode allows you to retrieve a two-column result in an array where the first column is the key and the second column is the value.
     }
+
+    public function getAllProducts()
+    {
+        $sql = "SELECT name FROM product ORDER BY name"; // select column 'name' from table 'product'   Order by name
+        $connectionProducts = $this->connection->query($sql); // query() performs a query against a database ($sql)
+        return $connectionProducts->fetchAll(PDO::FETCH_COLUMN);
+    }
 }
