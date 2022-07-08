@@ -9,8 +9,9 @@ class HomepageController // you should not echo anything inside your controller 
         $database = new Database();
         $database->connect();
 
+        $customers = $database->getAllCustomers();
+        print_r($customers);
 
-        
         // Models will be responsible for getting the data, for example if you want to get some students from a database:
         // $students = StudentHelper::getAllStudents();
         // The line above this one will use a StudentHelper model that you can make and require in this file
