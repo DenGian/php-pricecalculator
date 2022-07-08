@@ -1,7 +1,7 @@
 # php-pricecalculator
 
 ---
-MaTS
+### MaTS
 ![meme](images/meme.webp)
 
 ---
@@ -37,6 +37,8 @@ In this assignment we are asked to combine databases with OOP.
   - Model
   - View
   - Controller
+  
+-6 [x] Made model, so we can connect to DB, confirmation message on screen
 
 ---
 ### ToDo's
