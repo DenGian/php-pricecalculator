@@ -11,18 +11,20 @@ Anything complex should be calculated in the model -->
         <legend>Look-up</legend> <!-- ADDED WEEKEND -->
 
         <label for="customers">Choose a customer:</label>
-        <select name="customers" id="customers"> <!--//customers as customer, customer->getName() HINT id doorsturen ipv naam
-            <?php foreach ($customers as $key => $customer) {//loop through the customers array.
-                echo "<option>$key - $customer<option>"; //display lastname - Firstname in drop-down-list.
-            } ?>
+        <select name='customerId'>
+            <option selected="selected">Choose one</option>
+            <?php foreach($customers as $customer): ?>
+
+                    <option><?= $customer->getFirstName(); ?></option>
+            <?php endforeach; ?>
         </select>
 
         <label for="product">Choose a product:</label> <!--//samesame
-        <select name="product" id="product"><!--select is used to create a drop-down list-->
-            <?php foreach ($products as $product) {
-                echo "<option>$product<option>";
-            } ?>
-        </select>
+        <select name="product" id="product"><!-select is used to create a drop-down list-->
+<!--            --><?php //foreach ($products as $product) {
+//                echo "<option>$product<option>";
+//            } ?>
+<!--        </select>-->
 
         <label for="pieces">Pieces: </label><!-- ADDED WEEKEND -->
         <select name="pieces" id="pieces"><!-- ADDED WEEKEND -->
