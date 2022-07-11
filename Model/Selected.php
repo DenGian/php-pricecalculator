@@ -1,17 +1,20 @@
-<?php
+<?php //<!-- ADDED WEEKEND -->
 declare(strict_types=1);
+
+require 'View/homepage.php';
 
 class Selected{
     private string $name;
     private string $product;
-    private string $pieces;
+    private int $pieces;
+    private Database $connection;
 
     /**
      * @param string $name
      * @param string $product
-     * @param string $pieces
+     * @param int $pieces
      */
-    public function __construct(string $name, string $product, string $pieces)
+    public function __construct(string $name, string $product, int $pieces)
     {
         $this->name = $name;
         $this->product = $product;
@@ -35,12 +38,13 @@ class Selected{
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getPieces(): string
+    public function getPieces(): int
     {
         return $this->pieces;
     }
 
-    
+
+
 }

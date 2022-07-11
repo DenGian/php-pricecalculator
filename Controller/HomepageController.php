@@ -11,6 +11,11 @@ class HomepageController // you should not echo anything inside your controller 
 
         $customers = $database->getAllCustomers();
         $products = $database->getAllProducts();
+        $price = $database->getNormalPrice();
+
+        $selection = new PriceCalc();//<!-- ADDED WEEKEND -->
+        $selected = $selection->selected(); //<!-- ADDED WEEKEND -->
+
 
 
         //print_r($products);
