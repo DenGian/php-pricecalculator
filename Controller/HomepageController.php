@@ -11,6 +11,7 @@ class HomepageController // you should not echo anything inside your controller 
 //array van products name + array customers name
         $customers = $database->getAllCustomers();
         $products = $database->getAllProducts();
+        var_dump($customers);
         //if customer and product is choosen (){
         //make pricecalculator
         //}
