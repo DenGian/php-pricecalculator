@@ -5,7 +5,6 @@ class Database
 {
     //properties
     private $connection;
-    private array $customers = [];
 
     //method to make the connection
     public function connect(): void
@@ -32,12 +31,14 @@ class Database
         $sql = "SELECT * FROM customer ORDER BY lastname";  //Select the columns that are needed from the customer-table + order alphabetically by lastname.
         $customers = $this->connection->query($sql);   //query() performs a query against a database.
         //loop over result & make new client
+        //var_dump($customers);
+        $customerArray=[];
         foreach ($customers as $customer)
         {
-            $customer[] = new Client($customer['id'], $customer ['lastname'], $customer ['firstname'], $customer ['group_id'], $customer ['fixed_discount'], $customer ['variable_discount']); // Made sure keys are the same name as DB column
+            $customerArray[] = new Client($customer['id'], $customer ['lastname'], $customer ['firstname'], $customer ['group_id'], $customer ['fixed_discount'], $customer ['variable_discount']); // Made sure keys are the same name as DB column
         }
         //return new customer array
-        return $customer;
+        return $customerArray;
 
 
         //return $result->fetchAll(PDO::FETCH_KEY_PAIR);      //fetchAll() method allows you to fetch all rows from a result set associated with a PDOStatement object into an array.
@@ -57,10 +58,10 @@ class Database
     /**
      * @return array
      */
-    public function getCustomers(): array
-    {
-        return $this->customers;
-    }
+//    public function getCustomers(): array
+//    {
+//        return $this->customers;
+//    }
 
 
 
