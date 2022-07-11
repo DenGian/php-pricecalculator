@@ -17,11 +17,8 @@ class HomepageController // you should not echo anything inside your controller 
 
 
 
-
-        $pricePiece = $database->getNormalPrice();
-
         $prideCalc = new priceCalc();
-        $price = $prideCalc->productFetch($POST);
+       // $price = $prideCalc->productFetch($POST);
 
 
 
