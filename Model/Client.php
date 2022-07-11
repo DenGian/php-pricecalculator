@@ -8,8 +8,8 @@ class Client
     private string $lastname;
     private string $firstname;
     private int $groupId;
-    private int $fixedDiscount;
-    private int $variableDiscount;
+    private  $fixedDiscount;
+    private $variableDiscount;
 
     //constructor
     /**
@@ -20,7 +20,7 @@ class Client
      * @param int $fixedDiscount
      * @param int $variableDiscount
      */
-    public function __construct(int $id, string $lastname, string $firstname, int $groupId, int $fixedDiscount, int $variableDiscount)
+    public function __construct(int $id, string $lastname, string $firstname, int $groupId, $fixedDiscount, $variableDiscount)
     {
         $this->id = $id;
         $this->lastname = $lastname;
