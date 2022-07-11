@@ -9,5 +9,5 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to my site</h1>
+        <h1>Price calculator</h1> <!-- ADDED WEEKEND -->
     </header>

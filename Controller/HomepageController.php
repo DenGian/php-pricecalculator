@@ -8,9 +8,21 @@ class HomepageController // you should not echo anything inside your controller 
     {
         $database = new Database();
         $database->connect();
-
+//array van products name + array customers name
         $customers = $database->getAllCustomers();
         $products = $database->getAllProducts();
+        var_dump($customers);
+        //if customer and product is choosen (){
+        //make pricecalculator
+        //}
+
+
+
+        $prideCalc = new priceCalc();
+       // $price = $prideCalc->productFetch($POST);
+
+
+
 
 
         //print_r($products);
