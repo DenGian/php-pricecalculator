@@ -8,13 +8,22 @@ class HomepageController // you should not echo anything inside your controller 
     {
         $database = new Database();
         $database->connect();
-
+//array van products name + array customers name
         $customers = $database->getAllCustomers();
         $products = $database->getAllProducts();
-        $price = $database->getNormalPrice();
+        //if customer and product is choosen (){
+        //make pricecalculator
+        //}
 
-        $selection = new PriceCalc();//<!-- ADDED WEEKEND -->
-        $selected = $selection->selected(); //<!-- ADDED WEEKEND -->
+
+
+
+        $pricePiece = $database->getNormalPrice();
+
+        $prideCalc = new priceCalc();
+        $price = $prideCalc->productFetch($POST);
+
+
 
 
 

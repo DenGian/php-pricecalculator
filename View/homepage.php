@@ -11,13 +11,13 @@ Anything complex should be calculated in the model -->
         <legend>Look-up</legend> <!-- ADDED WEEKEND -->
 
         <label for="customers">Choose a customer:</label>
-        <select name="customers" id="customers">
+        <select name="customers" id="customers"> <!--//customers as customer, customer->getName() HINT id doorsturen ipv naam
             <?php foreach ($customers as $key => $customer) {//loop through the customers array.
                 echo "<option>$key - $customer<option>"; //display lastname - Firstname in drop-down-list.
             } ?>
         </select>
 
-        <label for="product">Choose a product:</label>
+        <label for="product">Choose a product:</label> <!--//samesame
         <select name="product" id="product"><!--select is used to create a drop-down list-->
             <?php foreach ($products as $product) {
                 echo "<option>$product<option>";
@@ -51,7 +51,8 @@ Anything complex should be calculated in the model -->
 <fieldset><!-- ADDED WEEKEND -->
     <legend>Result</legend><!-- ADDED WEEKEND -->
    <p>
-       <?=$price['price']/100?>
+       <?php print_r($pricePiece)?>
+
    </p>
 </fieldset><!-- ADDED WEEKEND -->
 
