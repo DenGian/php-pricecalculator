@@ -8,10 +8,11 @@ class Client
     private string $lastname;
     private string $firstname;
     private int $groupId;
-    private  $fixedDiscount;
+    private $fixedDiscount;
     private $variableDiscount;
 
     //constructor
+
     /**
      * @param int $id
      * @param string $lastname
@@ -32,6 +33,7 @@ class Client
 
 
     //getters to access the private properties
+
     /**
      * @return int
      */
