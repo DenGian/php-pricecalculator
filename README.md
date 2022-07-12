@@ -43,11 +43,11 @@ In this assignment we are asked to combine databases with OOP.
 -7 [x] Products
 * Products are shown in drop down menu
 ````
-<label for="product">Choose a product:</label>
-<select name="product" id="product"><!--select is used to create a drop-down list-->
-   <?php foreach ($products as $product) {
-       echo "<option>$product<option>";
-} ?>
+<select name="productName">
+            <?php foreach ($products as $product): ?>
+                <option><?= $product->getProductName(); ?></option>
+            <?php endforeach; ?>
+        </select>
 ````
 ````
 $sql = "SELECT name FROM product ORDER BY name";
@@ -58,11 +58,11 @@ return $connectionProducts->fetchAll(PDO::FETCH_COLUMN);
 -8 [x] Name
 * Names are shown in drop down menu (first and last names)
 ````
-<label for="customers">Choose a customer:</label>
-<select name="customers" id="customers">
-   <?php foreach ($customers as $key => $customer) {
-       echo "<option>$key - $customer<option>"; //display lastname - Firstname in drop-down-list.
-} ?>
+<select name='customerName'>
+            <?php foreach ($customers as $customer): ?><!-- google : php foreach html element -->
+            <option value ="<?= $customer->getId()?>"><?= $customer->getLastName() . "-" . $customer->getFirstName(); ?></option>
+            <?php endforeach; ?>
+        </select>
 ````
 ````
 $sql = "SELECT lastname, firstname From customer ORDER BY lastname, firstname";
