@@ -45,22 +45,5 @@ class PriceCalc
 
 
 
-
-    /*public function selected():string
-    {
-        $string = " ";
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $customer = $_POST['customers'];
-            $product = $_POST['product'];
-            $quantity = $_POST['pieces'];
-            $string = "$customer, wants to buy $quantity of $product";
-        }
-        return $string;
-    }*/
-
-
-
-
-
 }
 

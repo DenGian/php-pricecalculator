@@ -38,20 +38,22 @@ class Database
         }
         //1c//return new customer array
         return $customerArray;
-
-
-        //return $result->fetchAll(PDO::FETCH_KEY_PAIR);      //fetchAll() method allows you to fetch all rows from a result set associated with a PDOStatement object into an array.
-        //PDO::FETCH_KEY_PAIR mode allows you to retrieve a two-column result in an array where the first column is the key and the second column is the value.
     }
+
     //method to get all products for the drop-down.
     public function getAllProducts()
-    {
-        //select all c, loop over result & make new product => return array
-        $sql = "SELECT name FROM product ORDER BY name"; // select column 'name' from table 'product'   Order by name
-        $connectionProducts = $this->connection->query($sql); // query() performs a query against a database ($sql)
-        return $connectionProducts->fetchAll(PDO::FETCH_COLUMN); //PDOStatement::fetchColumn — Returns a single column from the next row of a result set
+    {   //2a//select all products
+        $sql = "SELECT * FROM product ORDER BY name"; // select all from table 'product'   Order by name
+        $products = $this->connection->query($sql);// query() performs a query against a database ($sql)
+        //2b//loop over the result & make a new product
+        $productArray=[];
+        foreach ($products as $product)
+        {
+            $productArray[] = new Products($product['id'], $product['name'], $product['price']);
+        }
+        //2c//return new product array
+        return $productArray;
     }
-
 
     //getter for private property customers
     /**

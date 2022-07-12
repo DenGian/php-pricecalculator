@@ -13,32 +13,30 @@ Anything complex should be calculated in the model -->
         <label for="customers">Choose a customer:</label>
         <select name='customerId'>
             <option selected="selected">Choose one</option>
-            <?php foreach($customers as $customer): ?>
-                    <option><?= $customer->getFirstName(); ?></option>
+            <?php foreach ($customers as $customer): ?><!-- google : php foreach html element -->
+            <option><?= $customer->getLastName() . "-" . $customer->getFirstName(); ?></option>
             <?php endforeach; ?>
         </select>
 
-        <!-- drop-down with product-name-->
-        <label for="product">Choose a product:</label> <!--//samesame
-        <select name="product" id="product"><!-select is used to create a drop-down list-->
-<!--            --><?php //foreach ($products as $product) {
-//                echo "<option>$product<option>";
-//            } ?>
-<!--        </select>-->
-
+        <!-- 2 --drop-down with product-name-->
+        <label for="product">Choose a product:</label>
+        <select name="product">
+            <option selected="selected">Choose one</option>
+            <?php foreach ($products as $product): ?>
+                <option><?= $product->getProductName(); ?></option>
+            <?php endforeach; ?>
+        </select>
 
     </fieldset>
 
     <button type="submit" name="submit" autofocus><span style="cursor: pointer">SUBMIT</span></button>
 </form>
-<?php echo "<p>$selected</p>" ?>
 
 <fieldset>
     <legend>Result</legend>
-   <p>
-       <?php print_r($pricePiece)?>
+    <p>
 
-   </p>
+    </p>
 </fieldset>
 
 
