@@ -11,10 +11,13 @@ class HomepageController // you should not echo anything inside your controller 
         $database->connect();
 
         $customers = $database->getAllCustomers();//1//drop-down customer-name
+        //$customer = $database->retrieveCustomer(intval($POST['customerName']));
         $products = $database->getAllProducts();//2//drop-down product-name
-        $selectedClient = $POST['customerName'];//3//analise post, get client
-        //var_dump($POST['customerName']);
-        //$clientGroup = $database->getAllGroupsByUser($selectedClient);
+        //$selectedClient = $POST['customerName'];//3//analise post, get client
+//        $test = intval($POST['customerName']);
+//        var_dump($test);
+        //var_dump($customer);
+        //$clientGroup = $database->getAllGroupsByUser($customer['groupId']);
         //var_dump($clientGroup);
         //pass client to getallgroupsforclient
         //bring all together in priceCalc -client, product, all groups
