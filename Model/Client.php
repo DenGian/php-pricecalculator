@@ -33,7 +33,6 @@ class Client
 
 
     //getters to access the private properties
-
     /**
      * @return int
      */

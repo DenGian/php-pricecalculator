@@ -10,25 +10,19 @@ Anything complex should be calculated in the model -->
     <fieldset>
         <legend>Look-up</legend>
         <!-- 1 --drop-down with customer-name-->
-        <label for="customers">Choose a customer:</label>
-        <select name='customerId'>
-            <option selected="selected">Choose one</option>
+        <select name='customerName'>
             <?php foreach ($customers as $customer): ?><!-- google : php foreach html element -->
-            <option><?= $customer->getLastName() . "-" . $customer->getFirstName(); ?></option>
+            <option value ="<?= $customer->getId()?>"><?= $customer->getLastName() . "-" . $customer->getFirstName(); ?></option>
             <?php endforeach; ?>
         </select>
 
         <!-- 2 --drop-down with product-name-->
-        <label for="product">Choose a product:</label>
-        <select name="product">
-            <option selected="selected">Choose one</option>
+        <select name="productName">
             <?php foreach ($products as $product): ?>
                 <option><?= $product->getProductName(); ?></option>
             <?php endforeach; ?>
         </select>
-
     </fieldset>
-
     <button type="submit" name="submit" autofocus><span style="cursor: pointer">SUBMIT</span></button>
 </form>
 

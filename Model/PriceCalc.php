@@ -3,14 +3,10 @@ declare(strict_types=1);
 
 class PriceCalc
 {
-    //properties // TODO get all groups for customer
-    private Database $connection;
+    //properties //
     private Client $customer;
     private Products $product;
-    private int $pieces;//weg
-    private int $price;
-    private int $fixed_discount;
-    private int $variable_discount;
+    private array $groups;
 
     //constructor
     /**
