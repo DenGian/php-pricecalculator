@@ -53,19 +53,39 @@ class Database
         return $productArray;
     }
 
-    public function getAllGroupsByUser(Client $client)
+    public function getAllGroupsByUser($groupId)
     {
-        $selected = $client;
-        var_dump($selected);
-        $sql = "SELECT c.group_id, cgid.id, cgid.name, cgparent.parent_id 
-                FROM customer c
-                JOIN customer_group cgid, customer_group cgparent
-                WHERE c.group_id = cgid.id
-                AND cgparent.parent_id != cgid.id";
-        $group = $this->connection->query($sql);
-        return $group;
-
-
+        //$client = new $client;
+        //var_dump($client);
+        $sql = "SELECT *
+                FROM customer_group
+                WHERE id = ' . $groupId . ' limit 1";
+        $query = $this->connection->query($sql);
+        var_dump($groupId);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    public function retrieveCustomer($Id)
+    {
+        //$client = new $client;
+        //var_dump($client);
+        //$dbh = $this->connection;
+        $sql = "SELECT *
+                FROM customer
+                WHERE id = ' . $Id . ' limit 1";
+        var_dump($sql);
+        $query = $this->connection->query($sql);
+        var_dump($query->fetch(PDO::FETCH_ASSOC));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    public function retrieveProduct($id)
+    {
+        //$client = new $client;
+        //var_dump($client);
+        $sql = "SELECT *
+                FROM product
+                WHERE id = ' . $id . ' limit 1";
+        $query = $this->connection->query($sql);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     //getter for private property customers
