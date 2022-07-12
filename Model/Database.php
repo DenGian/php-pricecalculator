@@ -25,34 +25,68 @@ class Database
         }
     }
 
-    //method to get all customers for the drop-down.
+    //1//method to get all customers for the drop-down.
     public function getAllCustomers()
-    {   //select all customers
+    {   //1a//select all customers
         $sql = "SELECT * FROM customer ORDER BY lastname";  //Select the columns that are needed from the customer-table + order alphabetically by lastname.
         $customers = $this->connection->query($sql);   //query() performs a query against a database.
-        //loop over result & make new client
-        //var_dump($customers);
-        $customerArray=[];
-        foreach ($customers as $customer)
-        {
+        //1b//loop over the result & make new client
+        $customerArray = [];
+        foreach ($customers as $customer) {
             $customerArray[] = new Client($customer['id'], $customer ['lastname'], $customer ['firstname'], $customer ['group_id'], $customer ['fixed_discount'], $customer ['variable_discount']); // Made sure keys are the same name as DB column
         }
-        //return new customer array
+        //1c//return new customer array
         return $customerArray;
-
-
-        //return $result->fetchAll(PDO::FETCH_KEY_PAIR);      //fetchAll() method allows you to fetch all rows from a result set associated with a PDOStatement object into an array.
-        //PDO::FETCH_KEY_PAIR mode allows you to retrieve a two-column result in an array where the first column is the key and the second column is the value.
     }
+
     //method to get all products for the drop-down.
     public function getAllProducts()
-    {
-        //select all c, loop over result & make new product => return array
-        $sql = "SELECT name FROM product ORDER BY name"; // select column 'name' from table 'product'   Order by name
-        $connectionProducts = $this->connection->query($sql); // query() performs a query against a database ($sql)
-        return $connectionProducts->fetchAll(PDO::FETCH_COLUMN); //PDOStatement::fetchColumn — Returns a single column from the next row of a result set
+    {   //2a//select all products
+        $sql = "SELECT * FROM product ORDER BY name"; // select all from table 'product'   Order by name
+        $products = $this->connection->query($sql);// query() performs a query against a database ($sql)
+        //2b//loop over the result & make a new product
+        $productArray = [];
+        foreach ($products as $product) {
+            $productArray[] = new Products($product['id'], $product['name'], $product['price']);
+        }
+        //2c//return new product array
+        return $productArray;
     }
 
+    public function getAllGroupsByUser($groupId)
+    {
+        //$client = new $client;
+        //var_dump($client);
+        $sql = "SELECT *
+                FROM customer_group
+                WHERE id = ' . $groupId . ' limit 1";
+        $query = $this->connection->query($sql);
+        var_dump($groupId);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    public function retrieveCustomer($Id)
+    {
+        //$client = new $client;
+        //var_dump($client);
+        //$dbh = $this->connection;
+        $sql = "SELECT *
+                FROM customer
+                WHERE id = ' . $Id . ' limit 1";
+        var_dump($sql);
+        $query = $this->connection->query($sql);
+        var_dump($query->fetch(PDO::FETCH_ASSOC));
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    public function retrieveProduct($id)
+    {
+        //$client = new $client;
+        //var_dump($client);
+        $sql = "SELECT *
+                FROM product
+                WHERE id = ' . $id . ' limit 1";
+        $query = $this->connection->query($sql);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
 
     //getter for private property customers
     /**
@@ -62,8 +96,6 @@ class Database
 //    {
 //        return $this->customers;
 //    }
-
-
 
 
 }

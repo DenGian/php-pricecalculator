@@ -6,15 +6,21 @@ class HomepageController // you should not echo anything inside your controller 
     //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
     {
+        var_dump($POST);
         $database = new Database();
         $database->connect();
-//array van products name + array customers name
-        $customers = $database->getAllCustomers();
-        $products = $database->getAllProducts();
-        var_dump($customers);
-        //if customer and product is choosen (){
-        //make pricecalculator
-        //}
+
+        $customers = $database->getAllCustomers();//1//drop-down customer-name
+        //$customer = $database->retrieveCustomer(intval($POST['customerName']));
+        $products = $database->getAllProducts();//2//drop-down product-name
+        //$selectedClient = $POST['customerName'];//3//analise post, get client
+//        $test = intval($POST['customerName']);
+//        var_dump($test);
+        //var_dump($customer);
+        //$clientGroup = $database->getAllGroupsByUser($customer['groupId']);
+        //var_dump($clientGroup);
+        //pass client to getallgroupsforclient
+        //bring all together in priceCalc -client, product, all groups
 
 
 

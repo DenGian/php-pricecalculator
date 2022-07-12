@@ -3,14 +3,10 @@ declare(strict_types=1);
 
 class PriceCalc
 {
-    //properties
-    private Database $connection;//get all groups for customer
+    //properties //
     private Client $customer;
     private Products $product;
-    private int $pieces;//weg
-    private int $price;
-    private int $fixed_discount;
-    private int $variable_discount;
+    private array $groups;
 
     //constructor
     /**
@@ -40,23 +36,6 @@ class PriceCalc
 //        return $fetchPrice;
 //    }
 
-
-
-
-
-
-
-    /*public function selected():string
-    {
-        $string = " ";
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $customer = $_POST['customers'];
-            $product = $_POST['product'];
-            $quantity = $_POST['pieces'];
-            $string = "$customer, wants to buy $quantity of $product";
-        }
-        return $string;
-    }*/
 
 
 
