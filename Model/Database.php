@@ -25,19 +25,18 @@ class Database
         }
     }
 
-    //method to get all customers for the drop-down.
+    //1//method to get all customers for the drop-down.
     public function getAllCustomers()
-    {   //select all customers
+    {   //1a//select all customers
         $sql = "SELECT * FROM customer ORDER BY lastname";  //Select the columns that are needed from the customer-table + order alphabetically by lastname.
         $customers = $this->connection->query($sql);   //query() performs a query against a database.
-        //loop over result & make new client
-        //var_dump($customers);
+        //1b//loop over the result & make new client
         $customerArray=[];
         foreach ($customers as $customer)
         {
             $customerArray[] = new Client($customer['id'], $customer ['lastname'], $customer ['firstname'], $customer ['group_id'], $customer ['fixed_discount'], $customer ['variable_discount']); // Made sure keys are the same name as DB column
         }
-        //return new customer array
+        //1c//return new customer array
         return $customerArray;
 
 

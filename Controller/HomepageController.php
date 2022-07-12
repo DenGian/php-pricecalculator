@@ -8,9 +8,9 @@ class HomepageController // you should not echo anything inside your controller 
     {
         $database = new Database();
         $database->connect();
-//array van products name + array customers name
-        $customers = $database->getAllCustomers();
-        $products = $database->getAllProducts();
+
+        $customers = $database->getAllCustomers();//1//drop-down customer-name
+        $products = $database->getAllProducts();//2//drop-down product-name
         var_dump($customers);
         //if customer and product is choosen (){
         //make pricecalculator

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 class PriceCalc
 {
-    //properties
-    private Database $connection;//get all groups for customer
+    //properties // TODO get all groups for customer
+    private Database $connection;
     private Client $customer;
     private Products $product;
     private int $pieces;//weg
